@@ -4,10 +4,10 @@
 **PRODUCT OWNER**: Adam Goodman
 
 <hr> 
-View our backlog and track progress on <a href="https://swe6733-1.atlassian.net/jira/software/projects/SWE6733/boards/4/backlog">Jira</a>
+View our backlog and track progress on <a target="_blank" href="https://swe6733-1.atlassian.net/jira/software/projects/SWE6733/boards/4/backlog">Jira</a>
 <br>
-View our <a href="https://github.com/ajgoodman-ksu/SWE6733/wiki">Wiki</a> for more information on our Product Vision, expected features and 
-<a href="https://github.com/ajgoodman-ksu/SWE6733/wiki/Definitions-of-Done">Definitions of Done</a>
+View our <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki">Wiki</a> for more information on our Product Vision, expected features and 
+<a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki/Definitions-of-Done">Definitions of Done</a>
 
 <hr>
 <br>

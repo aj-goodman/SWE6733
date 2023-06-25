@@ -1,0 +1,48 @@
+<div class="container-fluid row d-flex align-items-center">
+  <div class="col-6">
+    <%
+        images = [
+          "https://images.unsplash.com/photo-1473713984581-b8918cc3652e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+          "https://images.unsplash.com/photo-1494137319847-a9592a0e73ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=873&q=80",
+          "https://images.unsplash.com/photo-1496521061024-90e1c1221555?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+          "https://images.unsplash.com/photo-1517769160849-02feaecfd6cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+          "https://images.unsplash.com/photo-1572155935026-e6fbec6a2697?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+        ]
+    %>
+      <%= image_tag images.sample,
+                    class: "img-fluid rounded",
+                    alt: "Couple Sitting in Hammock" %>
+  </div>
+  <%= form_for User.new, html: { class: "d-block col-6" } do |form| %>
+    <div class="form-group my-2">
+      <%= form.text_field :name,
+                          required: true,
+                          placeholder: "Full Name",
+                          class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.email_field :email,
+                           required: true,
+                           placeholder: "Email Address",
+                           class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.password_field :password,
+                              required: true,
+                              placeholder: "Password",
+                              class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.password_field :password_confirmation,
+                              required: true,
+                              placeholder: "Confirm Password",
+                              class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2 text-end">
+      <%= form.submit "Create an Account", class: "btn btn-sm btn-soft" %>
+      <div class="mx-1 my-2 text-muted small">
+        Already registered?&nbsp;<%= link_to "Login", "#" %>
+      </div>
+    </div>
+  <% end %>
+</div>
