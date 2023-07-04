@@ -1,0 +1,16 @@
+
+<%
+  klass = {
+    alert: "warning",
+    notice: "primary"
+  }
+%>
+
+<% flash.each do |type, msg| %>
+  <div class="w-100 py-4 position-absolute" style="z-index: 99;">
+    <div class="alert alert-<%= klass[type.to_sym] %> p-4 toast" role="alert">
+      <p class="font-weight-bold"><%= type.upcase %></p>
+      <p><%= raw msg %></p>
+    </div>
+  </div>
+<% end %>
