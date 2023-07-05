@@ -8,8 +8,6 @@ $custom-colors: (
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
-
-@import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;700&display=swap');
 
 body {
