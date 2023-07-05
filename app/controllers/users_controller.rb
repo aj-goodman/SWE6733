@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to root_path, notice: "Welcome to Wildfire, #{@user.name}"
       else
-        render :new
+        render :new, status: :bad_request
       end
     end
   end

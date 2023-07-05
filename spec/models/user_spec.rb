@@ -24,6 +24,11 @@ describe "User" do
     expect(@user.valid?).to eq false
   end
 
+    it "is invalid with a password length < 6" do
+      @user.password = "123"
+      expect(@user.valid?).to eq false
+    end
+
   it "is invalid without a name" do
     @user.name = nil
     expect(@user.valid?).to eq false
