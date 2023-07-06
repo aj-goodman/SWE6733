@@ -17,9 +17,19 @@ View our <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki"
 *Kennesaw State University - Summer 2023*
 
 <hr>
+<h4>System Requirements</h4>
 
 * Ruby 3.2.2
 
 * Rails 7.0.5
 
+<hr>
+
+<h4>Sprint Directories</h4>
+
+<ul>
+  <li>
+    <a href="https://github.com/aj-goodman/SWE6733/tree/main/sprints/1">Sprint 1</a>
+  </li>
+</ul>
 
