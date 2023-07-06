@@ -22,4 +22,8 @@ View our <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki"
 
 * Rails 7.0.5
 
+<hr>
+
+** Sprint 1: 
+
 

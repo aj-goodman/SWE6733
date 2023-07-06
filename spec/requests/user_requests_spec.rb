@@ -91,7 +91,7 @@ describe "/users/new" do
     context "mismatching passwords" do
       before :each do
         password = SecureRandom.hex(6)
-        @params = { user: { name: "Name", email: "email@email", password: password, password_confirmation: "#{password}1" }}
+        @params = { user: { name: "Name", email: "email@email", password: password, password_confirmation: "#{password}1.md" }}
       end
 
       it "renders the register page" do
