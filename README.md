@@ -49,4 +49,3 @@ View our <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki"
     </ul>
   </li>
 </ul>
-

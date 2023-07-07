@@ -1,5 +1,5 @@
 <div class="container-fluid row d-flex align-items-center">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <%
         images = [
           "https://images.unsplash.com/photo-1473713984581-b8918cc3652e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -13,7 +13,13 @@
                     class: "img-fluid rounded",
                     alt: "Couple Sitting in Hammock" %>
   </div>
-  <%= form_for User.new, html: { class: "d-block col-6" } do |form| %>
+  <%= form_for @user, url: new_user_path, method: :post, html: { class: "d-block col-12 col-md-6" } do |form| %>
+    <% if @user.errors.any? %>
+      <% errors = @user.errors.full_messages.join(", ") %>
+      <div class="alert alert-danger show position-absolute w-full top-0 end-0 m-5 w-full" role="alert">
+        <%= errors %>
+      </div>
+    <% end %>
     <div class="form-group my-2">
       <%= form.text_field :name,
                           required: true,
@@ -41,7 +47,7 @@
     <div class="form-group my-2 text-end">
       <%= form.submit "Create an Account", class: "btn btn-sm btn-soft" %>
       <div class="mx-1 my-2 text-muted small">
-        Already registered?&nbsp;<%= link_to "Login", "#" %>
+        Already registered?&nbsp;<%= link_to "Login", login_path %>
       </div>
     </div>
   <% end %>

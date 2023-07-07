@@ -1,11 +1,13 @@
-$theme-colors: (
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+$custom-colors: (
         "soft": #DED6D1,
         "secondary": #CDE5D7
 );
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss';
-@import 'font-awesome';
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;700&display=swap');
 
 body {
@@ -15,4 +17,15 @@ body {
 
 .max-w-screen-md {
   max-width: 720px;
+}
+
+.alert {
+  padding: 20px 35px 20px 25px;
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.25, 1.35);
+}
+
+.alert.active{
+  transform: translateX(0);
 }
