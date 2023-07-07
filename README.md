@@ -29,7 +29,7 @@ View our <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki"
 
 <ul>
   <li>
-    <a href="https://github.com/aj-goodman/SWE6733/tree/main/sprints/1">Sprint 1</a>
+    <a href="https://github.com/aj-goodman/SWE6733/tree/main/public/sprints/1">Sprint 1</a>
     <ul>
         <li>
             <a href="https://swe6733-1.atlassian.net/l/cp/tq4Yca1b" target="_blank">Forecast</a>
