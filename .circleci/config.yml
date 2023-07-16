@@ -51,3 +51,18 @@ jobs:
           name: Database setup
       - ruby/rspec-test:
           include: spec/**/*_spec.rb
+      # Run rspec in parallel
+      - ruby/rspec-test
+      - ruby/rubocop-check
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - checking:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
