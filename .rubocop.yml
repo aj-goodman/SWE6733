@@ -3,6 +3,7 @@ AllCops:
     - 'bin/*'
     - 'db/*'
     - 'app/controllers/sessions_controller.rb'
+    - '/home/circleci/*'
 
 Style/Documentation:
   Enabled: false
