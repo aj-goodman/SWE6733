@@ -52,6 +52,7 @@
     <orderEntry type="library" scope="PROVIDED" name="image_processing (v1.12.2, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.6.0, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.5, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v2.6.3, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, Remote-rbenv: ruby-3.2.1 (-p31) [gem]" level="application" />
