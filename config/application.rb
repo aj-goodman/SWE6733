@@ -20,7 +20,7 @@ module Wildfire
     #
     config.time_zone = 'Eastern Time (US & Canada)'
     # config.eager_load_paths << Rails.root.join("extras")
-
+    config.active_storage.variant_processor = :mini_magick
     config.generators do |g|
       g.test_framework nil # to skip test framework
       g.assets false

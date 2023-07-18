@@ -6,3 +6,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+ADVENTURES = ["Hiking", "Shooting", "Climbing", "Kayaking", "Whitewater Rafting"]
+ADVENTURES.each { |a| Adventure.create! name: a }

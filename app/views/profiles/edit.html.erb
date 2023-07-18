@@ -1,0 +1,52 @@
+<div class="container-fluid row d-flex align-items-center">
+  <%= form_for @profile do |form| %>
+    <% if @profile.errors.any? %>
+      <% errors = @profile.errors.full_messages.join(", ") %>
+      <div class="alert alert-danger show position-absolute w-full top-0 end-0 m-5 w-full" role="alert">
+        <%= errors %>
+      </div>
+    <% end %>
+    <div class="form-group text-center mt-4">
+      <%= image_tag @profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" if @profile.photo.present? %>
+    </div>
+    <div class="form-group text-center">
+      <%= form.file_field :photo, accept: "image/png, image/jpeg", class: "form-control d-none" %>
+      <%= form.label :photo, "Upload Profile Photo", class: "btn btn-soft btn-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :dob, "Location", class: "col-form-label-sm" %>
+      <%= form.text_field :location,
+                          required: true,
+                          placeholder: "New York, NY",
+                          class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :dob, "Date of Birth", class: "col-form-label-sm" %>
+      <%= form.date_field :dob,
+                          required: true,
+                          placeholder: "Location",
+                          class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :seeking, "Seeking", class: "col-form-label-sm" %>
+      <%= form.select :seeking,
+                      Profile.seekings.map { |s| [s.first.titleize, s.first] }, {},
+                      class: "form-select form-select-sm" %>
+    </div>
+    <div data-controller="adventure" class="form-group my-2">
+      <%= label_tag :adventures, "Adventures", class: "col-form-label-sm" %>
+      <%= text_field_tag :search_adventures,
+                         {},
+                         data: { action: "keyup->adventure#search" },
+                         placeholder: "Type to Search...",
+                         class: "form-control form-control-sm"  %>
+      <%= content_tag :div, "",
+                      data: { "adventure-target": "results" },
+                      class: "form-control form-control-sm rounded-top-0 d-none",
+                      style: "margin-top: -3px; border-top: 0;"  %>
+    </div>
+    <div class="form-group my-3 text-end">
+      <%= form.submit "Save Changes", class: "btn btn-sm btn-soft" %>
+    </div>
+  <% end %>
+</div>
