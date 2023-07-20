@@ -9,6 +9,8 @@ class Profile < ApplicationRecord
   before_update :coordinate
 
   def age
+    return 0 unless dob
+
     (Date.today - dob).to_i / 365
   end
 
