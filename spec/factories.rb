@@ -7,7 +7,7 @@ FactoryBot.define do
     password { Faker::Internet.password }
 
     after(:create) do |user|
-      create(:profile, user: user)
+      create(:profile, user:)
     end
   end
 
