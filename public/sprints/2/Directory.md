@@ -66,6 +66,17 @@ July 10 - July 20, 2023
                     </ul>
                 </li>
                 <li>
+                    CI/CD
+                    <ul>
+                        <li>
+                            <a href="https://app.circleci.com/pipelines/github/aj-goodman/SWE6733" target="_blank">Pipeline</a>
+                        </li>
+                        <li>
+                            <a href="https://wild-fire-4952dada8337.herokuapp.com/" target="_blank">Deployment Target</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     Tests
                     <ul>
                         <li>
