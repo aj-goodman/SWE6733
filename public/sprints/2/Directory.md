@@ -44,6 +44,17 @@ July 10 - July 20, 2023
                     </ul>
                 </li>
                 <li>
+                    Velocity
+                    <ul>
+                        <li>
+                            <a href="https://swe6733-1.atlassian.net/jira/software/projects/SWE6733/boards/4/reports/velocity" target="_blank">Jira URL</a>
+                        </li>
+                        <li>
+                            <a href="Velocity.png" target="_blank">PNG</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     Retrospective
                     <ul>
                         <li>
