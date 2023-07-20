@@ -8,7 +8,7 @@ class Profile < ApplicationRecord
   delegate :name, to: :user
   before_update :coordinate
 
-  validates_presence_of [:location, :dob, :seeking], on: :update
+  validates_presence_of %i[location dob seeking], on: :update
   validates_uniqueness_of :user_id
 
   def age
