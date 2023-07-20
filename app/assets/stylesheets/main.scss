@@ -1,0 +1,35 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  color: #212427;
+  font-family: 'Dosis', sans-serif;
+}
+
+.max-w-screen-md {
+  max-width: 720px;
+}
+
+.alert {
+  padding: 20px 35px 20px 25px;
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.25, 1.35);
+}
+
+.alert.active{
+  transform: translateX(0);
+}
+
+.adventure-option {
+  cursor: pointer;
+}
+
+.adventure-option:hover {
+  background: whitesmoke;
+}
+
+.adventure-badge {
+  cursor: pointer;
+}
