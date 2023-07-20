@@ -281,15 +281,30 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">User</dt>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">creates a profile after create</span><span class='duration'>0.87103s</span></dd>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">converts location to longitude/latitude</span><span class='duration'>0.26518s</span></dd>
+  <dt id="example_group_1" class="passed">Profile</dt>
+    <script type="text/javascript">moveProgressBar('14.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">creates a profile after create</span><span class='duration'>0.65652s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">is valid immediately upon create</span><span class='duration'>0.16868s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">cannot share a user</span><span class='duration'>0.15798s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">converts location to longitude/latitude</span><span class='duration'>0.25576s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.13852 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "2 examples, 0 failures";</script>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_2" class="passed">UPDATE</dt>
+    <script type="text/javascript">moveProgressBar('71.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">is invalid without a location</span><span class='duration'>0.15623s</span></dd>
+    <script type="text/javascript">moveProgressBar('85.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">is invalid without a date of birth</span><span class='duration'>0.14738s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">is invalid without a seeking value</span><span class='duration'>0.16291s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.71025 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "7 examples, 0 failures";</script>
 </div>
 </div>
 </body>

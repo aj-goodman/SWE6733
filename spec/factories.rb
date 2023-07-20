@@ -11,7 +11,11 @@ FactoryBot.define do
     end
   end
 
-  factory(:profile)
+  factory(:profile) do
+    location { 'Boston, MA' }
+    dob { Date.today - 30.years }
+    seeking { 'anything' }
+  end
 
   factory(:adventure) do
     name { 'Climbing' }

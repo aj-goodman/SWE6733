@@ -8,6 +8,9 @@ class Profile < ApplicationRecord
   delegate :name, to: :user
   before_update :coordinate
 
+  validates_presence_of [:location, :dob, :seeking], on: :update
+  validates_uniqueness_of :user_id
+
   def age
     return 0 unless dob
 
