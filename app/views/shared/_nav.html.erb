@@ -5,7 +5,7 @@
   <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link <%= "active" if current_page?(root_path) %>" href="#">Match</a>
-      <a class="nav-item nav-link" href="#">My Profile</a>
+      <a class="nav-item nav-link <%= "active" if current_page?(profile_edit_path) %>" href="<%= profile_edit_path %>">My Profile</a>
       <%= button_to "Logout", logout_path, method: :delete, class: "nav-item nav-link" %>
     </div>
   </div>

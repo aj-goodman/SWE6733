@@ -1,0 +1,38 @@
+<style>
+  .attribute {
+      width: 100px;
+      display: inline-block;
+  }
+</style>
+
+<div data-adventure-target="preview" class="text-center d-none">
+  <div class="form-group mt-4">
+    <% if profile.photo.present? %>
+      <%= image_tag profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" %>
+    <% else %>
+      <i class="fa fa-user fa-2xl mb-3 d-flex align-items-center justify-content-center mx-auto rounded" style="width: 500px; height: 300px; background: whitesmoke;"></i>
+    <% end %>
+  </div>
+
+  <div class="form-group my-2">
+    <%= profile.bio %>
+  </div>
+  <hr>
+  <div class="form-group my-3">
+    <i class="fa fa-location-dot me-2"></i><%= content_tag :div, profile.location, class: "attribute" %>
+  </div>
+  <div class="form-group my-3">
+    <i class="fa fa-cake-candles me-2"></i><%= content_tag :div, profile.age, class: "attribute" %>
+  </div>
+  <div class="form-group my-3">
+    <i class="fa fa-magnifying-glass me-2"></i><%= content_tag :div, profile.seeking&.titleize, class: "attribute" %>
+  </div>
+  <div class="form-group my-2 d-flex justify-content-center">
+    <% adventures.each do |adventure| %>
+      <div class="inline mx-3 bg-light p-2 shadow-sm">
+        <i class="fa-regular fa-thumbs-up me-2"></i>
+        <%= adventure.name %>
+      </div>
+    <% end unless adventures.blank? %>
+  </div>
+</div>

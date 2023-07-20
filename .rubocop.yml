@@ -1,9 +1,10 @@
 AllCops:
   Exclude:
     - 'bin/*'
-    - 'db/*'
+    - 'db/**/*'
     - 'app/controllers/sessions_controller.rb'
     - 'vendor/**/*'
+    - 'spec/factories.rb'
 
 Style/Documentation:
   Enabled: false

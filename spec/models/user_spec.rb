@@ -35,4 +35,11 @@ describe 'User' do
     @user.name = nil
     expect(@user.valid?).to eq false
   end
+
+  context 'after create' do
+    it 'creates an associated profile' do
+      @user = create :user
+      expect(@user.profile).not_to eq nil
+    end
+  end
 end

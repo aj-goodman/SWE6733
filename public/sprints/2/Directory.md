@@ -1,12 +1,12 @@
-## Sprint 1
-June 24 - July 7, 2023
+## Sprint 2
+July 10 - July 20, 2023
 <hr>
             <ul>
                 <li>
                     Forecast
                     <ul>
                         <li>
-                            <a href="https://swe6733-1.atlassian.net/l/cp/71tB0hCY" target="_blank">Jira URL</a>
+                            <a href="https://swe6733-1.atlassian.net/wiki/spaces/SWE6733/pages/3702785/Sprint+2%3A+Forecast" target="_blank">Jira URL</a>
                         </li>
                         <li>
                             <a href="Forecast.pdf" target="_blank">PDF</a>
@@ -25,7 +25,7 @@ June 24 - July 7, 2023
                     Daily Standup
                     <ul>
                         <li>
-                            <a href="https://swe6733-1.atlassian.net/l/cp/vq4vU7tx" target="_blank">Jira URL</a>
+                            <a href="https://swe6733-1.atlassian.net/wiki/spaces/SWE6733/pages/4358164" target="_blank">Jira URL</a>
                         </li>
                         <li>
                             <a href="Standup.pdf" target="_blank">PDF</a>
@@ -58,7 +58,7 @@ June 24 - July 7, 2023
                     Retrospective
                     <ul>
                         <li>
-                            <a href="https://swe6733-1.atlassian.net/l/cp/oNNvRStv" target="_blank">Jira URL</a>
+                            <a href="https://swe6733-1.atlassian.net/wiki/spaces/SWE6733/pages/4358145/Sprint+2%3A+Retrospective" target="_blank">Jira URL</a>
                         </li>
                         <li>
                             <a href="Retrospective.pdf" target="_blank">PDF</a>
@@ -69,13 +69,19 @@ June 24 - July 7, 2023
                     Tests
                     <ul>
                         <li>
-                            <a href="/public/sprints/1/tests/user_model_spec.html" target="_blank">User Model</a>
+                            <a href="/public/sprints/2/tests/user_model_spec.html" target="_blank">User Model</a>
                         </li>
                         <li>
-                            <a href="/public/sprints/1/tests/user_requests_spec.html" target="_blank">User Requests</a>
+                            <a href="/public/sprints/2/tests/user_requests_spec.html" target="_blank">User Requests</a>
                         </li>
                         <li>
-                            <a href="/public/sprints/1/tests/session_requests_spec.html" target="_blank">Session Requests</a>
+                            <a href="/public/sprints/2/tests/session_requests_spec.html" target="_blank">Session Requests</a>
+                        </li>
+                        <li>
+                            <a href="/public/sprints/2/tests/profile_model_spec.html" target="_blank">Profile Model</a>
+                        </li>
+                        <li>
+                            <a href="/public/sprints/2/tests/profile_requests_spec.html" target="_blank">Profile Requests</a>
                         </li>
                     </ul>
                 </li>

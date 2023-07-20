@@ -1,0 +1,78 @@
+<div data-controller="adventure" class="container-fluid row d-flex align-items-center">
+  <div class="text-end mt-3">
+    <%= button_tag "Preview Profile",
+                   data: { action: "adventure#preview" },
+                   class: "btn btn-soft btn-sm" unless @profile.created_at == @profile.updated_at %>
+  </div>
+  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures } %>
+  <%= form_for @profile, html: { data: { "adventure-target": "form" }} do |form| %>
+    <% if @profile.errors.any? %>
+      <% errors = @profile.errors.full_messages.join(", ") %>
+      <div class="alert alert-danger show position-absolute w-full top-0 end-0 m-5 w-full" role="alert">
+        <%= errors %>
+      </div>
+    <% end %>
+    <div class="form-group text-center mt-4">
+      <%= image_tag @profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" if @profile.photo.present? %>
+    </div>
+    <div class="form-group text-center">
+      <%= form.file_field :photo,
+                          accept: "image/png, image/jpeg",
+                          onchange: "this.form.submit()",
+                          class: "form-control d-none" %>
+      <%= form.label :photo, "Upload Profile Photo", class: "btn btn-soft btn-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :bio, "Bio", class: "col-form-label-sm" %>
+      <%= form.text_field :bio,
+                          placeholder: "A little about me...",
+                          class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :location, "Location", class: "col-form-label-sm" %>
+      <%= form.text_field :location,
+                          required: true,
+                          placeholder: "New York, NY",
+                          class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :dob, "Date of Birth", class: "col-form-label-sm" %>
+      <%= form.date_field :dob,
+                          required: true,
+                          placeholder: "Location",
+                          class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :seeking, "Seeking", class: "col-form-label-sm" %>
+      <%= form.select :seeking,
+                      Profile.seekings.map { |s| [s.first.titleize, s.first] }, {},
+                      required: true,
+                      class: "form-select form-select-sm" %>
+    </div>
+    <div class="form-group my-2 position-relative">
+      <%= label_tag :adventures, "Adventures", class: "col-form-label-sm" %>
+      <%= text_field_tag :search_adventures,
+                         {},
+                         data: { action: "keyup->adventure#search", "adventure-target": "search" },
+                         placeholder: "Type to Search...",
+                         class: "form-control form-control-sm"  %>
+      <%= content_tag :div, "<",
+                      data: { "adventure-target": "results" },
+                      class: "form-control form-control-sm rounded-top-0 d-none position-absolute",
+                      style: "margin-top: -3px; border-top: 0;" %>
+
+      <div data-adventure-target="badges" class="form-group py-3">
+        <% @adventures.each do |adventure| %>
+          <span class="adventure-badge bg-light border rounded p-2 me-2 form-control-sm" data-action="click->adventure#remove">
+            <%= adventure.name %>
+            <i class="fa fa-sm ms-2 fa-close pe-none"></i>
+            <input type="hidden" name="adventures[]" value="<%= adventure.name %>">
+          </span>
+        <% end unless @adventures.blank? %>
+      </div>
+    </div>
+    <div class="form-group my-3 text-end">
+      <%= form.submit "Save Changes", class: "btn btn-sm btn-soft" %>
+    </div>
+  <% end %>
+</div>
