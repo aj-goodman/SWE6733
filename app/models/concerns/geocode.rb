@@ -5,7 +5,7 @@ module Geocode
   require 'net/http'
   require 'json'
 
-  API_KEY = Rails.application.credentials.geocode[:api_key]
+  API_KEY = ENV['GEOCODE_KEY'] || Rails.application.credentials.geocode[:api_key]
   BASE_URL = "http://api.positionstack.com/v1/forward?access_key=#{API_KEY}&country=US&query=.".freeze
 
   def self.coordinate(place)
@@ -13,6 +13,7 @@ module Geocode
     res = Net::HTTP.get_response(uri)
     return 'There was an error' unless res.is_a?(Net::HTTPSuccess)
 
+    Rails.logger.info "Converting #{place} to coordinates"
     data = JSON.parse(res.body)['data'][0]
     { 'lat' => data['latitude'], 'long' => data['longitude'] }
   end

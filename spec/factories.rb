@@ -6,10 +6,14 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
 
-    after(:create) do |user|
+    after(:build) do |user|
       create(:profile, user:)
     end
   end
 
   factory(:profile)
+
+  factory(:adventure) do
+    name { 'Climbing' }
+  end
 end

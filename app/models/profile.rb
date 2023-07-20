@@ -17,6 +17,8 @@ class Profile < ApplicationRecord
   private
 
   def coordinate
-    attributes.merge!(Geocode.coordinate(location))
+    coordinates = Geocode.coordinate(location)
+    self.lat = coordinates['lat']
+    self.long = coordinates['long']
   end
 end

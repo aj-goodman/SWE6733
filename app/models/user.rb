@@ -12,6 +12,6 @@ class User < ApplicationRecord
   private
 
   def create_profile
-    Profile.create(user_id: id) unless profile.present?
+    Profile.find_or_create_by!(user_id: id)
   end
 end

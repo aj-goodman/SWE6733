@@ -7,7 +7,11 @@
 
 <div data-adventure-target="preview" class="text-center d-none">
   <div class="form-group mt-4">
-    <%= image_tag profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" if profile.photo.present? %>
+    <% if profile.photo.present? %>
+      <%= image_tag profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" %>
+    <% else %>
+      <i class="fa fa-user fa-2xl mb-3 d-flex align-items-center justify-content-center mx-auto rounded" style="width: 500px; height: 300px; background: whitesmoke;"></i>
+    <% end %>
   </div>
 
   <div class="form-group my-2">
