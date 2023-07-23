@@ -5,7 +5,8 @@
   }
 </style>
 
-<div data-adventure-target="preview" class="text-center d-none">
+<div data-adventure-target="preview" class="profile text-center <%= "d-none" if hide %>">
+  <%= content_tag :h4, profile.name, class: "my-3" %>
   <div class="form-group mt-4">
     <% if profile.photo.present? %>
       <%= image_tag profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" %>
@@ -22,10 +23,16 @@
     <i class="fa fa-location-dot me-2"></i><%= content_tag :div, profile.location, class: "attribute" %>
   </div>
   <div class="form-group my-3">
+    <i class="fa fa-<%= profile.gender_icon %> me-2"></i><%= content_tag :div, profile.gender.titleize, class: "attribute" %>
+  </div>
+  <div class="form-group my-3">
     <i class="fa fa-cake-candles me-2"></i><%= content_tag :div, profile.age, class: "attribute" %>
   </div>
   <div class="form-group my-3">
     <i class="fa fa-magnifying-glass me-2"></i><%= content_tag :div, profile.seeking&.titleize, class: "attribute" %>
+  </div>
+  <div class="form-group my-3">
+    <i class="fa fa-<%= profile.date_icon %> me-2"></i><%= content_tag :div, profile.looking_for&.titleize, class: "attribute" %>
   </div>
   <div class="form-group my-2 d-flex justify-content-center">
     <% adventures.each do |adventure| %>

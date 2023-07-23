@@ -4,7 +4,7 @@
                    data: { action: "adventure#preview" },
                    class: "btn btn-soft btn-sm" unless @profile.created_at == @profile.updated_at %>
   </div>
-  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures } %>
+  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures, hide: true } unless @profile.created_at == @profile.updated_at %>
   <%= form_for @profile, html: { data: { "adventure-target": "form" }} do |form| %>
     <% if @profile.errors.any? %>
       <% errors = @profile.errors.full_messages.join(", ") %>
@@ -43,9 +43,23 @@
                           class: "form-control form-control-sm" %>
     </div>
     <div class="form-group my-2">
-      <%= form.label :seeking, "Seeking", class: "col-form-label-sm" %>
+      <%= form.label :gender, "I am a...", class: "col-form-label-sm" %>
+      <%= form.select :gender,
+                      Profile::GENDERS, {},
+                      required: true,
+                      class: "form-select form-select-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :seeking, "Seeking a...", class: "col-form-label-sm" %>
       <%= form.select :seeking,
-                      Profile.seekings.map { |s| [s.first.titleize, s.first] }, {},
+                      Profile::SEEKING, {},
+                      required: true,
+                      class: "form-select form-select-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :looking_for, "For...", class: "col-form-label-sm" %>
+      <%= form.select :looking_for,
+                      Profile.looking_fors.map { |s| [s.first.titleize, s.first] }, {},
                       required: true,
                       class: "form-select form-select-sm" %>
     </div>
