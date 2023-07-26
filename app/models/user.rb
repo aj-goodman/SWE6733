@@ -7,8 +7,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
 
   has_one :profile, dependent: :destroy
-  delegate :matches, :rejects, :accepts, to: :profile
+  delegate :matches, :rejects, :accepts, :new_matches, to: :profile
   after_save :create_profile
+
+  has_many :messages
+  has_many :chats, -> { distinct }, through: :messages
 
   private
 

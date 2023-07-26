@@ -20,5 +20,11 @@ Rails.application.routes.draw do
 
   # Matches
   get     '/matches',               to: 'matches#index'
-  post    '/matches',               to: 'matches#decide'
+  post    '/matches/reject',        to: 'matches#reject'
+  post    '/matches/accept',        to: 'matches#accept'
+
+  # Chats
+  resources :chats do
+    post '/', to: 'chats#new_message'
+  end
 end

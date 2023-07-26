@@ -21,18 +21,20 @@ module Geocode
   # https://stackoverflow.com/a/36832601
 
   RAD_PER_DEG = Math::PI / 180
-  RM = 6371000 # Earth radius in meters
+  RM = 6_371_000 # Earth radius in meters
 
   def self.distance(from:, to:)
     lat1 = from.lat
     lon1 = from.long
     lat2 = to.lat
     lon2 = to.long
-    lat1_rad, lat2_rad = lat1 * RAD_PER_DEG, lat2 * RAD_PER_DEG
-    lon1_rad, lon2_rad = lon1 * RAD_PER_DEG, lon2 * RAD_PER_DEG
+    lat1_rad = lat1 * RAD_PER_DEG
+    lat2_rad = lat2 * RAD_PER_DEG
+    lon1_rad = lon1 * RAD_PER_DEG
+    lon2_rad = lon2 * RAD_PER_DEG
 
-    a = Math.sin((lat2_rad - lat1_rad) / 2) ** 2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin((lon2_rad - lon1_rad) / 2) ** 2
-    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1 - a))
+    a = Math.sin((lat2_rad - lat1_rad) / 2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin((lon2_rad - lon1_rad) / 2)**2
+    c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
     RM * c * 0.00062137 # Delta in miles
   end

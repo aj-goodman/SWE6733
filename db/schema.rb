@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_234119) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_225039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_234119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_ids", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "chat_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
     t.string "location"
@@ -63,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_234119) do
     t.string "gender"
     t.integer "accepts", default: [], array: true
     t.integer "rejects", default: [], array: true
+    t.boolean "new_matches", default: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

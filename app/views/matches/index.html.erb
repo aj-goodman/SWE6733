@@ -2,6 +2,9 @@
     .profile {
         transition: all .75s ease;
     }
+    body {
+        padding-bottom: 2rem;
+    }
 </style>
 
 <div data-controller="match" data-match-target="container" class="container-fluid row d-flex align-items-center text-center m-0">
@@ -14,7 +17,7 @@
     <%= button_tag "<i class='fa fa-close fa-lg'></i>".html_safe,
                    data: { action: "match#reject", id: @profile.id },
                    class: "btn btn-danger w-25 me-3 py-3" %>
-    <%= button_tag "<i class='fa fa-check fa-lg'></i>".html_safe,
+    <%= button_tag "<i class='fa fa-fire-flame-curved fa-lg'></i>".html_safe,
                    data: { action: "match#accept", id: @profile.id },
                    class: "btn btn-success w-25 me-3 py-3" %>
   </div>
