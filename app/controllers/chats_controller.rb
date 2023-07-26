@@ -25,7 +25,7 @@ class ChatsController < ApplicationController
     @current_user.profile.rejects << u.id
     @current_user.profile.save
     chat.destroy
-    redirect_to chats_path, alert: "You have unmatched."
+    redirect_to chats_path, alert: 'You have unmatched.'
   end
 
   private
