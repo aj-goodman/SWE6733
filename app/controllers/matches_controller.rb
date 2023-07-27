@@ -5,8 +5,10 @@ class MatchesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[reject accept]
 
   def index
+    redirect_to profile_edit_path and return unless @current_user.profile.valid?(:validate)
+
     @profile = @current_user.matches.sample
-    @adventures = Adventure.where id: @profile.adventures
+    @adventures = Adventure.where id: @profile.adventures if @profile
   end
 
   def reject
@@ -30,14 +32,17 @@ class MatchesController < ApplicationController
       chat.messages.create(user_id: @current_user.id, body: 'We matched!')
       chat.messages.create(user_id: match.id, body: 'We matched!')
       flash[:success] = 'You got a match!'
-      profile.new_matches = matched = true
+      profile.new_matches = match.profile.new_matches = matched = true
     end
     profile.save
     profile = @current_user.matches.sample
-    adventures = Adventure.where id: profile.adventures
-    render json: { matched: matched,
-                   profile: render_to_string(partial: 'profiles/preview',
+    adventures = Adventure.where id: profile.adventures if profile
+    payload = { matched: matched }
+    if profile
+      payload[:profile] = render_to_string(partial: 'profiles/preview',
                                              locals: { profile:,
-                                                       adventures:, hide: false }) }
+                                                       adventures:, hide: false })
+    end
+    render json: payload
   end
 end

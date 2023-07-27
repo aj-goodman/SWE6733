@@ -21,7 +21,10 @@ describe '/profile/edit' do
 
   describe 'UPDATE' do
     before :each do
-      @bio = { profile: { bio: 'bio', location: 'New York, NY', dob: Date.today - 25.years, seeking: 'friends' } }
+      @bio = { profile:
+                 { bio: 'bio',
+                   location: 'New York, NY', dob: Date.today - 25.years,
+                   seeking: 'Woman', looking_for: 'anything', gender: 'Man' } }
     end
 
     it 'updates the profile attributes' do

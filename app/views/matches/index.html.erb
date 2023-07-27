@@ -8,17 +8,19 @@
 </style>
 
 <div data-controller="match" data-match-target="container" class="container-fluid row d-flex align-items-center text-center m-0">
-  <div data-match-target="wrapper">
-    <div class="profile py-2" data-match-target="profile">
+  <% if @profile.blank? %>
+    No potential matches found.
+  <% else %>
+    <div class="profile py-2" data-match-target="profile" style="height: 750px;">
       <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures, hide: false } %>
     </div>
+    <div class="my-4 text-center">
+      <%= button_tag "<i class='fa fa-close fa-lg'></i>".html_safe,
+                     data: { action: "match#reject", id: @profile.id },
+                     class: "btn btn-danger w-25 me-3 py-3" %>
+      <%= button_tag "<i class='fa fa-fire-flame-curved fa-lg'></i>".html_safe,
+                     data: { action: "match#accept", id: @profile.id },
+                     class: "btn btn-success w-25 me-3 py-3" %>
   </div>
-  <div class="my-4 text-center">
-    <%= button_tag "<i class='fa fa-close fa-lg'></i>".html_safe,
-                   data: { action: "match#reject", id: @profile.id },
-                   class: "btn btn-danger w-25 me-3 py-3" %>
-    <%= button_tag "<i class='fa fa-fire-flame-curved fa-lg'></i>".html_safe,
-                   data: { action: "match#accept", id: @profile.id },
-                   class: "btn btn-success w-25 me-3 py-3" %>
-  </div>
+  <% end %>
 </div>

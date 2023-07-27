@@ -5,7 +5,7 @@
   }
 </style>
 
-<div data-adventure-target="preview" class="profile text-center <%= "d-none" if hide %>">
+<div data-adventure-target="preview" class="profile text-center mb-3 <%= "d-none" if hide %>">
   <%= content_tag :h4, profile.name, class: "my-3" %>
   <div class="form-group mt-4">
     <% if profile.photo.present? %>

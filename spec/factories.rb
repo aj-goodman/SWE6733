@@ -14,7 +14,10 @@ FactoryBot.define do
   factory(:profile) do
     location { 'Boston, MA' }
     dob { Date.today - 30.years }
-    seeking { 'anything' }
+    seeking { %w[Man Woman Both].sample }
+    gender { %w[Man Woman].sample }
+    bio { 'Hello world!' }
+    looking_for { 'anything' }
   end
 
   factory(:adventure) do

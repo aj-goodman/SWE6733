@@ -56,7 +56,11 @@ export default class extends Controller {
                     scrollTo(0,0)
                     window.location.reload()
                 }
-                profile = data.profile
+                if (data.profile) {
+                    profile = data.profile
+                } else {
+                    profile = "No more potential matches! Check back later."
+                }
             })
         setTimeout(() => {
             this.profileTarget.innerHTML = profile

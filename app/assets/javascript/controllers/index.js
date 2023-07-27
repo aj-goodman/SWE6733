@@ -9,3 +9,6 @@ application.register("adventure", AdventureController)
 
 import MatchController from "./match_controller"
 application.register("match", MatchController)
+
+import ChatController from "./chat_controller"
+application.register("chat", ChatController)

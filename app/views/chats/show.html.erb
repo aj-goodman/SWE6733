@@ -2,35 +2,21 @@
   .messages { max-height: 800px; overflow: auto; }
 </style>
 
-<div class="container-fluid my-3 pb-3">
-  <% match = @chat.users.find_by('users.id != ?', @current_user.id).profile %>
-  <% if match.photo.present? %>
-    <%= image_tag match.photo.variant(resize_to_limit: [100, 100]), class: "rounded mx-auto" %>
-  <% else %>
-    <i class="fa fa-user fa-2xl d-flex align-items-center justify-content-center mx-auto rounded col-2" style="width: 100px; height: 100px; background: whitesmoke;"></i>
-  <% end %>
-  <div class="container messages d-flex flex-column py-4">
-    <% @chat.messages.each do |msg| %>
-      <% slf = msg.user == @current_user %>
-      <% next if msg.body.blank? %>
-      <div class="row border rounded my-3 px-2 py-1 w-75 <%= slf ? "align-self-end bg-primary-subtle" : "bg-light" %>">
-        <%= content_tag :strong, msg.user.name, class: "col-12 #{" text-end" if slf}" %>
-        <%= content_tag :span, msg.body, class: ("text-end" if slf) %>
-      </div>
-      <sub class="w-25 sub <%= "text-end align-self-end" if slf %>">
-        <%= msg.created_at.strftime("%b %e, %l:%M %p") %>
-      </sub>
-    <% end %>
+<div data-controller="chat" class="container-fluid my-3 pb-3">
+  <div data-chat-target="chat" id="chat" data-id="<%= @chat.id %>">
+    <%= render partial: "chat", locals: { chat: @chat } %>
   </div>
-  <hr>
   <div class="text-end">
-    <%= form_with url: chat_path(@chat), model: @message do |form| %>
-      <%= form.text_area :body,
-                         rows: 3,
-                         columns: 40,
-                         style: "resize: none;",
-                         class: "form-control form-control-sm py-1" %>
-      <%= form.submit "Send", class: "btn btn-soft btn-sm mt-2 px-3" %>
-    <% end %>
+      <%= text_area_tag :body, "",
+                        required: true,
+                        rows: 2,
+                        columns: 40,
+                        data: { "chat-target": "input" },
+                        style: "resize: none;",
+                        class: "form-control form-control-sm py-1" %>
+      <%= button_tag "Send",
+                      type: "button",
+                      data: { action: "click->chat#sendMessage", id: @chat.id },
+                      class: "btn btn-soft btn-sm mt-2 px-3" %>
   </div>
 </div>

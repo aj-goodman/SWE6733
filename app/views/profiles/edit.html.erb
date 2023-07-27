@@ -2,16 +2,10 @@
   <div class="text-end mt-3">
     <%= button_tag "Preview Profile",
                    data: { action: "adventure#preview" },
-                   class: "btn btn-soft btn-sm" unless @profile.created_at == @profile.updated_at %>
+                   class: "btn btn-soft btn-sm" if @profile.valid?(:validate) %>
   </div>
-  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures, hide: true } unless @profile.created_at == @profile.updated_at %>
+  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures, hide: true } if @profile.valid?(:validate) %>
   <%= form_for @profile, html: { data: { "adventure-target": "form" }} do |form| %>
-    <% if @profile.errors.any? %>
-      <% errors = @profile.errors.full_messages.join(", ") %>
-      <div class="alert alert-danger show position-absolute w-full top-0 end-0 m-5 w-full" role="alert">
-        <%= errors %>
-      </div>
-    <% end %>
     <div class="form-group text-center mt-4">
       <%= image_tag @profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" if @profile.photo.present? %>
     </div>

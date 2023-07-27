@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   # Profiles
   get     '/profile/edit',          to: 'profiles#edit'
   resource :profile,                only: %i[update]
-  post    '/profile/edit/auth/',    to: 'profiles#auth', as: 'instagram_auth'
-  post    '/profile/edit/deauth/',  to: 'profiles#deauth'
 
   # Adventures
   post    '/adventures/search',     to: 'adventures#search'
@@ -26,5 +24,6 @@ Rails.application.routes.draw do
   # Chats
   resources :chats do
     post '/', to: 'chats#new_message'
+    post '/retrieve', to: 'chats#retrieve'
   end
 end

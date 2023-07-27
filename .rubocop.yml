@@ -3,6 +3,7 @@ AllCops:
     - 'bin/*'
     - 'db/**/*'
     - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/profiles_controller.rb'
     - 'app/controllers/matches_controller.rb'
     - 'vendor/**/*'
     - 'spec/factories.rb'

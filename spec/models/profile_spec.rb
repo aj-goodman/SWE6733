@@ -20,17 +20,17 @@ describe 'Profile' do
   context 'UPDATE' do
     it 'is invalid without a location' do
       user.profile.location = nil
-      expect(user.profile.valid?).to be_falsey
+      expect(user.profile.valid?(:validate)).to be_falsey
     end
 
     it 'is invalid without a date of birth' do
       user.profile.dob = nil
-      expect(user.profile.valid?).to be_falsey
+      expect(user.profile.valid?(:validate)).to be_falsey
     end
 
     it 'is invalid without a seeking value' do
       user.profile.seeking = nil
-      expect(user.profile.valid?).to be_falsey
+      expect(user.profile.valid?(:validate)).to be_falsey
     end
   end
 

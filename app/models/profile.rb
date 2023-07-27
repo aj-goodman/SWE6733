@@ -8,14 +8,14 @@ class Profile < ApplicationRecord
   delegate :name, to: :user
   before_update :coordinate
 
-  validates_presence_of %i[location dob seeking], on: :update
+  validates_presence_of %i[location dob seeking], on: :validate
   validates_uniqueness_of :user_id
 
   GENDERS = %w[Man Woman].freeze
   SEEKING = GENDERS + ['Both']
 
-  validates_inclusion_of :gender, in: GENDERS, on: :update
-  validates_inclusion_of :seeking, in: SEEKING, on: :update
+  validates_inclusion_of :gender, in: GENDERS, on: :validate
+  validates_inclusion_of :seeking, in: SEEKING, on: :validate
 
   def age
     return 0 unless dob
@@ -52,7 +52,7 @@ class Profile < ApplicationRecord
   private
 
   def coordinate
-    return unless location_changed?
+    return unless location_changed? && location.present?
 
     coordinates = Geocode.coordinate(location)
     self.lat = coordinates['lat']
