@@ -2,16 +2,10 @@
   <div class="text-end mt-3">
     <%= button_tag "Preview Profile",
                    data: { action: "adventure#preview" },
-                   class: "btn btn-soft btn-sm" unless @profile.created_at == @profile.updated_at %>
+                   class: "btn btn-soft btn-sm" if @profile.valid?(:validate) %>
   </div>
-  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures } %>
+  <%= render partial: "profiles/preview", locals: { profile: @profile, adventures: @adventures, hide: true } if @profile.valid?(:validate) %>
   <%= form_for @profile, html: { data: { "adventure-target": "form" }} do |form| %>
-    <% if @profile.errors.any? %>
-      <% errors = @profile.errors.full_messages.join(", ") %>
-      <div class="alert alert-danger show position-absolute w-full top-0 end-0 m-5 w-full" role="alert">
-        <%= errors %>
-      </div>
-    <% end %>
     <div class="form-group text-center mt-4">
       <%= image_tag @profile.photo.variant(resize_to_limit: [500, 300]), class: "rounded mb-3" if @profile.photo.present? %>
     </div>
@@ -43,9 +37,23 @@
                           class: "form-control form-control-sm" %>
     </div>
     <div class="form-group my-2">
-      <%= form.label :seeking, "Seeking", class: "col-form-label-sm" %>
+      <%= form.label :gender, "I am a...", class: "col-form-label-sm" %>
+      <%= form.select :gender,
+                      Profile::GENDERS, {},
+                      required: true,
+                      class: "form-select form-select-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :seeking, "Seeking a...", class: "col-form-label-sm" %>
       <%= form.select :seeking,
-                      Profile.seekings.map { |s| [s.first.titleize, s.first] }, {},
+                      Profile::SEEKING, {},
+                      required: true,
+                      class: "form-select form-select-sm" %>
+    </div>
+    <div class="form-group my-2">
+      <%= form.label :looking_for, "For...", class: "col-form-label-sm" %>
+      <%= form.select :looking_for,
+                      Profile.looking_fors.map { |s| [s.first.titleize, s.first] }, {},
                       required: true,
                       class: "form-select form-select-sm" %>
     </div>

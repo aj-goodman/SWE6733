@@ -1,0 +1,31 @@
+<div class="container-fluid">
+<% if @chats.blank? %>
+  <div class="text-center mb-2">No matches found.</div>
+  <%= link_to "Start matching", matches_path, class: "btn btn-soft d-block" %>
+<% end %>
+<% @chats.each do |chat| %>
+  <% match = chat.users.find_by('users.id != ?', @current_user.id).profile %>
+  <%= link_to chat_path(chat), class: "text-decoration-none text-black" do %>
+    <div class="row">
+      <% if match.photo.present? %>
+        <%= image_tag match.photo.variant(resize_to_limit: [100, 100]), class: "rounded col-3" %>
+      <% else %>
+        <i class="fa fa-user fa-2xl d-flex align-items-center justify-content-center mx-auto rounded col-2" style="width: 100px; height: 100px; background: whitesmoke;"></i>
+      <% end %>
+      <div class="col-9 d-flex justify-content-center flex-column">
+        <%= content_tag :h4, match.name %>
+        <% last_msg = chat.messages.last %>
+        <%= content_tag :p, class: "#{last_msg.user == @current_user ? "bg-primary-subtle" : "bg-light"} rounded text-black border py-2 px-3 me-4" do %>
+          <%= last_msg.body %>
+          <br>
+          <%= content_tag :sub, chat.messages.last.created_at.strftime("%b %e, %l:%M %p"), class: "float-end mb-2" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <%= button_to "Unmatch",
+                "/chats/#{chat.id}",
+                method: :delete, data: { confirm: "Are you sure?" }, class: "btn text-danger btn-sm ms-2" %>
+  <hr>
+<% end %>
+</div>

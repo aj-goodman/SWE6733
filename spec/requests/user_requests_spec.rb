@@ -30,12 +30,12 @@ describe '/users/new' do
       end
 
       it 'redirects to root_path' do
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(profile_edit_path)
       end
 
-      it 'renders the matches index' do
+      it 'renders the profile index' do
         follow_redirect!
-        expect(response).to render_template 'matches/index'
+        expect(response).to render_template 'profiles/edit'
       end
     end
 

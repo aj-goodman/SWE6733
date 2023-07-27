@@ -1,0 +1,22 @@
+<style>
+  .messages { max-height: 800px; overflow: auto; }
+</style>
+
+<div data-controller="chat" class="container-fluid my-3 pb-3">
+  <div data-chat-target="chat" id="chat" data-id="<%= @chat.id %>">
+    <%= render partial: "chat", locals: { chat: @chat } %>
+  </div>
+  <div class="text-end">
+      <%= text_area_tag :body, "",
+                        required: true,
+                        rows: 2,
+                        columns: 40,
+                        data: { "chat-target": "input" },
+                        style: "resize: none;",
+                        class: "form-control form-control-sm py-1" %>
+      <%= button_tag "Send",
+                      type: "button",
+                      data: { action: "click->chat#sendMessage", id: @chat.id },
+                      class: "btn btn-soft btn-sm mt-2 px-3" %>
+  </div>
+</div>

@@ -11,10 +11,19 @@ Rails.application.routes.draw do
 
   # Profiles
   get     '/profile/edit',          to: 'profiles#edit'
-  resource :profile,                only: [:update]
-  post    '/profile/edit/auth/',    to: 'profiles#auth', as: 'instagram_auth'
-  post    '/profile/edit/deauth/',  to: 'profiles#deauth'
+  resource :profile,                only: %i[update]
 
   # Adventures
   post    '/adventures/search',     to: 'adventures#search'
+
+  # Matches
+  get     '/matches',               to: 'matches#index'
+  post    '/matches/reject',        to: 'matches#reject'
+  post    '/matches/accept',        to: 'matches#accept'
+
+  # Chats
+  resources :chats do
+    post '/', to: 'chats#new_message'
+    post '/retrieve', to: 'chats#retrieve'
+  end
 end

@@ -15,7 +15,14 @@ class ProfilesController < ApplicationController
         adventure_ids << Adventure.find_or_create_by(name: adventure).id
       end
     end
-    return unless @current_user.profile.update(profile_params.merge(adventures: adventure_ids))
+    if profile_params.except('photo').values.compact!.blank? && params[:profile][:photo].present?
+      @current_user.profile.photo.attach(params[:profile][:photo])
+      @current_user.profile.save!(validate: false, context: :attachment)
+    else
+      p = @current_user.profile
+      p.assign_attributes(profile_params.merge(adventures: adventure_ids))
+      p.save(context: :validate)
+    end
 
     redirect_to profile_edit_path, notice: 'Changes saved.'
   end
@@ -23,6 +30,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:bio, :location, :dob, :seeking, :photo)
+    params.require(:profile).permit(:bio, :location, :dob, :seeking, :photo, :gender, :looking_for)
   end
 end

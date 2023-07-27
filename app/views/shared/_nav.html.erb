@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent mx-auto w-full">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link <%= "active" if current_page?(root_path) %>" href="#">Match</a>
-      <a class="nav-item nav-link <%= "active" if current_page?(profile_edit_path) %>" href="<%= profile_edit_path %>">My Profile</a>
-      <%= button_to "Logout", logout_path, method: :delete, class: "nav-item nav-link" %>
+  <div class="justify-content-center mx-auto" id="navbarNavAltMarkup">
+    <div class="navbar-nav flex-row">
+      <a class="nav-item nav-link px-2 <%= "active" if current_page?(root_path) %>" href="<%= matches_path %>">Match</a>
+      <a class="nav-item nav-link px-2 <%= "active" if current_page?(chats_path) %>" href="<%= chats_path %>">
+        <%= content_tag :i, nil, class: "fa fa-exclamation-circle" if @current_user.new_matches %> Chats
+      </a>
+      <a class="nav-item nav-link px-2 <%= "active" if current_page?(profile_edit_path) %>" href="<%= profile_edit_path %>">My Profile</a>
+      <%= button_to "Logout", logout_path, method: :delete, class: "nav-item nav-link px-2" %>
     </div>
   </div>
 </nav>
