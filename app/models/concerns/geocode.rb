@@ -24,6 +24,8 @@ module Geocode
   RM = 6_371_000 # Earth radius in meters
 
   def self.distance(from:, to:)
+    return if [from, to].include?(nil)
+
     lat1 = from.lat
     lon1 = from.long
     lat2 = to.lat
