@@ -44,7 +44,8 @@ class Profile < ApplicationRecord
       end
       distance = Geocode.distance(from: self, to: profile)
       profiles[profile] = profiles[profile] / distance
-      profiles[profile] = profiles[profile] / (age - profile.age).abs
+      age_diff = (age - profile.age).abs
+      profiles[profile] = profiles[profile] / (age_diff.zero? ? 1 : age_diff)
     end
     profiles.sort_by { |_k, v| v }.reverse.map(&:first)
   end
