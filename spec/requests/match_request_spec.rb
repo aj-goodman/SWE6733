@@ -18,18 +18,18 @@ describe '/matches' do
 
   it 'renders the matches index' do
     get matches_path
-    expect(response).to render_template "matches/index"
+    expect(response).to render_template 'matches/index'
   end
 
   it 'renders the matches index' do
     get matches_path
-    expect(response).to render_template "matches/index"
+    expect(response).to render_template 'matches/index'
   end
 
   it 'renders a potential match' do
-    user.profile.update(seeking: "Woman", gender: "Man", looking_for: "anything")
+    user.profile.update(seeking: 'Woman', gender: 'Man', looking_for: 'anything')
     u = build :user
-    u.profile.update(seeking: "Man", gender: "Woman", looking_for: "anything")
+    u.profile.update(seeking: 'Man', gender: 'Woman', looking_for: 'anything')
     get matches_path
     expect(response.body).to include u.name
   end
@@ -66,5 +66,4 @@ describe '/matches' do
       expect(user.rejects).to include user2.id
     end
   end
-
 end

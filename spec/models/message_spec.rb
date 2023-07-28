@@ -7,11 +7,11 @@ describe 'Message' do
   let(:user) { create :user }
 
   it 'is invalid without an associated chat' do
-    m = Message.new(body: "Hello world!")
+    m = Message.new(body: 'Hello world!')
     expect(m).not_to be_valid
   end
   it 'is invalid without an associated user' do
-    m = chat.messages.new(body: "Hello world!")
+    m = chat.messages.new(body: 'Hello world!')
     expect(m).not_to be_valid
   end
 
