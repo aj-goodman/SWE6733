@@ -32,8 +32,8 @@ class Profile < ApplicationRecord
   end
 
   def matches
-    profiles = Profile.where(seeking: [gender, 'both']).where.not(id: rejects.concat(accepts))
-    profiles = profiles.where(gender: seeking) unless seeking == 'both'
+    profiles = Profile.where(seeking: [gender, 'Both']).where.not(id: rejects.concat(accepts))
+    profiles = profiles.where(gender: seeking) unless seeking == 'Both'
     profiles = Hash[profiles.map { |x| [x, 100] }]
     profiles.each_key do |profile|
       profiles[profile] += 100 * (adventures && profile.adventures).length
