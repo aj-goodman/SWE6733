@@ -1,4 +1,4 @@
-## Sprint 2
+## Sprint 3
 July 21 - July 28, 2023
 <hr>
             <ul>
