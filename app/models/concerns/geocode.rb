@@ -42,7 +42,7 @@ module Geocode
 
     RM * c * 0.00062137 # Delta in miles
     rescue
-      0
+      1
     end
   end
 end

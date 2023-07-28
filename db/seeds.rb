@@ -57,7 +57,7 @@ end
   user.profile.update(
     bio: "This profile is for testing purposes only. The photo is AI generated at https://generated.photos/faces.",
     location: LOCATIONS.sample,
-    gender: "Male",
+    gender: "Man",
     dob: Date.today - 25.years,
     looking_for: LOOKING_FOR.sample,
     seeking: ["Woman", "Both"].sample,
