@@ -20,7 +20,7 @@ July 21 - July 28, 2023
                             <a href="https://swe6733-1.atlassian.net/jira/software/projects/SWE6733/boards/4" target="_blank">Jira URL</a>
                         </li>
                         <li>
-                            <a href="/public/sprints/2/Kanban.png" target="_blank">PNGL</a>
+                            <a href="/public/sprints/2/Kanban.png" target="_blank">PNG</a>
                         </li>
                     </ul>
                 </li>
