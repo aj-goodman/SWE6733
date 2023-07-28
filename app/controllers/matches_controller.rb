@@ -16,7 +16,7 @@ class MatchesController < ApplicationController
     profile.rejects << params[:id].to_i
     profile.save
     profile = @current_user.matches.sample
-    adventures = Adventure.where id: profile.adventures
+    adventures = Adventure.where id: profile.adventures if profile.present?
     render json: { profile: render_to_string(partial: 'profiles/preview',
                                              locals: { profile:,
                                                        adventures:, hide: false }) }

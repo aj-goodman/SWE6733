@@ -12,7 +12,9 @@ FactoryBot.define do
   end
 
   factory(:profile) do
-    location { 'Boston, MA' }
+    location { 'Mystic, CT' }
+    lat { 41.366197 }
+    long { -71.803679 }
     dob { Date.today - 30.years }
     seeking { %w[Man Woman Both].sample }
     gender { %w[Man Woman].sample }
@@ -23,4 +25,6 @@ FactoryBot.define do
   factory(:adventure) do
     name { 'Climbing' }
   end
+
+  factory(:chat)
 end

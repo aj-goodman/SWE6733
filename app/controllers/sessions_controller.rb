@@ -2,7 +2,7 @@
 
 class SessionsController < ApplicationController
   def new
-    redirect_to root_path, notice: "Welcome back, #{current_user.name}" if current_user
+    redirect_to root_path, notice: "Welcome back, #{current_user.name}" and return if current_user
 
     return unless request.post?
 
