@@ -17,9 +17,15 @@ class MatchesController < ApplicationController
     profile.save
     profile = @current_user.matches.sample
     adventures = Adventure.where id: profile.adventures if profile.present?
-    render json: { profile: render_to_string(partial: 'profiles/preview',
+    payload =
+    if profile
+      { profile: render_to_string(partial: 'profiles/preview',
                                              locals: { profile:,
                                                        adventures:, hide: false }) }
+    else
+      { profile: "No potential matches.  Check back later! " }
+    end
+    render json: payload
   end
 
   def accept
