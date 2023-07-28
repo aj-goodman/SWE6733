@@ -26,6 +26,8 @@ module Geocode
   def self.distance(from:, to:)
     return if [from, to].include?(nil)
 
+    begin
+
     lat1 = from.lat
     lon1 = from.long
     lat2 = to.lat
@@ -39,5 +41,8 @@ module Geocode
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
     RM * c * 0.00062137 # Delta in miles
+    rescue
+      0
+    end
   end
 end
