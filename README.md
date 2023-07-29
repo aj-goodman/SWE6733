@@ -10,7 +10,6 @@ View our <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki"
 <a target="_blank" href="https://github.com/ajgoodman-ksu/SWE6733/wiki/Definitions-of-Done">Definitions of Done</a>
 
 <hr>
-<br>
 
 *Emerging Software Engineering Processes (SWE6733)*
 <br>
